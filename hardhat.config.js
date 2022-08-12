@@ -16,18 +16,16 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
-// You need to export an object to set up your config
-// Go to https://hardhat.org/config/ to learn more
+const ALCHEMY_API_KEY_URL = process.env.ALCHEMY_API_KEY_URL;
 
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
+const RINKEBY_PRIVATE_KEY = process.env.RINKEBY_PRIVATE_KEY;
+
 module.exports = {
-  solidity: "0.8.10",
+  solidity: "0.8.4",
   networks: {
-    kovan: {
-      url: `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.PRIVATE_KEY],
+    rinkeby: {
+      url: ALCHEMY_API_KEY_URL,
+      accounts: [RINKEBY_PRIVATE_KEY],
     },
   },
 };
