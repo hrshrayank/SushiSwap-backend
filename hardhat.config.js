@@ -1,10 +1,10 @@
 require("@nomicfoundation/hardhat-toolbox");
 
 require("@nomiclabs/hardhat-ethers");
-require("@nomiclabs/hardhat-etherscan");
+
 require("@openzeppelin/hardhat-upgrades");
 
-require("dotenv").config();
+require("dotenv").config({ path: ".env" });
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -29,8 +29,5 @@ module.exports = {
       url: `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`,
       accounts: [process.env.PRIVATE_KEY],
     },
-  },
-  etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
   },
 };
